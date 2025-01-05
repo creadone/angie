@@ -16,7 +16,7 @@ module Angie
     def block(name, &block)
       @config << "#{indent}#{name} {"
       if block_given?
-        child = NginxDSL.new(self, &block)
+        child = Angie::DSL.new(self, &block)
         @config.concat(child.config)
       end
       @config << "#{indent}}"
